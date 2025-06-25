@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solliciteer: Business Development Officer</title>
-
+    <title>Business Development Officer</title>
+    
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Make sure to link to the updated CSS file -->
-    <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -27,21 +26,17 @@
                 </div>
             </header>
 
-            <!-- Application Card (Blue Banner) -->
-            <section class="card application-card">
-                 <div class="application-icon-wrapper">
-                    <!-- Updated Icon to better match the image -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 6L9 17l-5-5"/>
-                    </svg>
+            <!-- "Apply Now" Card -->
+            <section class="card cta-card">
+                 <div class="cta-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2.25A2.25 2.25 0 0014.25 19.5h4.5A2.25 2.25 0 0021 17.25V7.5A2.25 2.25 0 0018.75 5.25h-4.5A2.25 2.25 0 0012 7.5v2.25" /></svg>
                  </div>
-                 <div class="application-content">
-                     <h2>Klaar voor de volgende stap?</h2>
-                     <p>Ben jij de Business Development Officer die wij zoeken? Solliciteer vandaag nog!</p>
+                 <div class="cta-content">
+                    <h2>Klaar voor de volgende stap?</h2>
+                    <p>Solliciteer direct en zet jouw carrière in beweging. We kijken uit naar je sollicitatie!</p>
                  </div>
-                 <button class="btn btn-light" onclick="openApplicationModal()">Solliciteer direct</button>
+                 <button class="btn btn-secondary" onclick="openModal()">Nu solliciteren</button>
             </section>
-
 
             <!-- Job Details Section -->
             <section class="card job-details">
@@ -59,7 +54,7 @@
                         <li>Woonachtig in de regio Nijmegen en in het bezit van rijbewijs B.</li>
                     </ul>
                 </article>
-                <article>
+                 <article>
                     <h3>Wat wij bieden</h3>
                     <ul>
                         <li>Een salaris tussen € 3.500,- en € 5.000,- bruto per maand.</li>
@@ -69,108 +64,85 @@
                 </article>
             </section>
 
+            <!-- Contact Section -->
+            <aside class="card contact-card">
+                 <img src="https://www.nrg-office.nl/media/1109/roel-koper-nrg-office.jpg" alt="Roel Koper" class="consultant-photo" onerror="this.style.display='none'; this.parentElement.style.display='none'">
+                 <div class="contact-details">
+                    <h4>Vragen over deze vacature?</h4>
+                    <p>Roel Koper staat je graag te woord.</p>
+                 </div>
+                 <a href="tel:0612345678" class="btn btn-tertiary">Neem contact op</a>
+            </aside>
         </main>
     </div>
 
 
-    <!-- Application Modal -->
-    <div id="applicationModal" class="modal-overlay">
+    <!-- NEW Application Modal -->
+    <div id="applicationModal" class="modal-overlay" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeApplicationModal()">&times;</button>
-            <h2>Solliciteer op deze functie</h2>
-            <p>Vul je gegevens in om te solliciteren. Een persoonlijke code van een verwijzer is verplicht.</p>
-            
-            <form id="applicationForm">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Solliciteren</h2>
+            <p>Vul je gegevens in om te solliciteren op de functie van Business Development Officer.</p>
+            <form class="application-form">
                 <div class="form-group">
-                    <label for="personalCode">Persoonlijke code (verplicht)</label>
-                    <input type="text" id="personalCode" name="personalCode" placeholder="Vul hier de code van je verwijzer in" required>
+                    <label for="appName">Naam</label>
+                    <input type="text" id="appName" placeholder="Je volledige naam" required>
                 </div>
                  <div class="form-group">
-                    <label for="email">E-mailadres (verplicht)</label>
-                    <input type="email" id="email" name="email" placeholder="jouw.email@voorbeeld.com" required>
+                    <label for="appPhone">Telefoonnummer</label>
+                    <input type="tel" id="appPhone" placeholder="06 12345678" required>
+                </div>
+                 <div class="form-group">
+                    <label for="appEmail">E-mailadres</label>
+                    <input type="email" id="appEmail" placeholder="jouw.email@example.com" required>
+                </div>
+                 <div class="form-group">
+                    <label for="appCv">CV</label>
+                    <label class="file-upload-label" for="appCv">
+                        <span id="file-name-display">Kies bestand...</span>
+                        <span class="btn-file-upload">Bladeren</span>
+                    </label>
+                    <input type="file" id="appCv" class="file-upload-input" required>
+                </div>
+                 <div class="form-group">
+                    <label for="appLinkedin">LinkedIn URL <span class="optional-tag">(Optioneel)</span></label>
+                    <input type="url" id="appLinkedin" placeholder="https://linkedin.com/in/jouwprofiel">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Telefoonnummer (verplicht)</label>
-                    <input type="tel" id="phone" name="phone" placeholder="0612345678" required>
+                    <label for="appMotivation">Motivatie <span class="optional-tag">(Optioneel)</span></label>
+                    <textarea id="appMotivation" rows="4" placeholder="Vertel ons waarom jij de perfecte kandidaat bent..."></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="linkedinUrl">LinkedIn profiel URL (optioneel)</label>
-                    <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="https://www.linkedin.com/in/jouwprofiel">
-                </div>
-                <div class="form-group">
-                    <label for="cv">Upload CV (optioneel)</label>
-                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
-                </div>
-                <div class="form-group">
-                    <label for="motivation">Motivatie (optioneel)</label>
-                    <textarea id="motivation" name="motivation" rows="4" placeholder="Vertel ons waarom jij de perfecte kandidaat bent..."></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Verstuur sollicitatie</button>
+                <button type="submit" class="btn btn-primary submit-btn">Verstuur sollicitatie</button>
             </form>
-
         </div>
     </div>
 
     <script>
-        const applicationModal = document.getElementById('applicationModal');
-        const applicationForm = document.getElementById('applicationForm');
-        const personalCodeInput = document.getElementById('personalCode');
+        const modal = document.getElementById('applicationModal');
 
-        // Function to get ref code from URL and pre-fill the input
-        function getRefCodeFromUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const refCode = urlParams.get('ref');
-            if (refCode) {
-                personalCodeInput.value = refCode.toUpperCase();
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            if (event.target === modal) {
+                 modal.style.display = 'none';
             }
         }
+        
+        // Attach close functionality to the 'X' button
+        document.querySelector('.modal-close').addEventListener('click', () => modal.style.display = 'none');
 
-        function openApplicationModal() {
-            // Pre-fill code from URL every time modal is opened
-            getRefCodeFromUrl();
-            applicationModal.style.display = 'flex';
-        }
-
-        function closeApplicationModal() {
-            applicationModal.style.display = 'none';
-        }
-
-        // Close modal if user clicks on the overlay
-        applicationModal.addEventListener('click', (event) => {
-            if (event.target === applicationModal) {
-                closeApplicationModal();
+        // File input display logic
+        const fileInput = document.getElementById('appCv');
+        const fileNameDisplay = document.getElementById('file-name-display');
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = 'Kies bestand...';
             }
         });
-
-        // Handle form submission
-        applicationForm.addEventListener('submit', (event) => {
-            // Prevent the form from submitting the traditional way
-            event.preventDefault(); 
-            
-            // Here you would typically send the data to a server.
-            // For this example, we'll just log it to the console.
-            const formData = new FormData(applicationForm);
-            console.log('--- Sollicitatie ---');
-            for (let [key, value] of formData.entries()) {
-                // For file inputs, the value is a File object
-                if (value instanceof File) {
-                    console.log(`${key}: ${value.name} (${value.size} bytes)`);
-                } else {
-                    console.log(`${key}: ${value}`);
-                }
-            }
-
-            // Let the user know the application was "sent"
-            alert('Bedankt voor je sollicitatie! We nemen spoedig contact met je op.');
-            
-            closeApplicationModal();
-            applicationForm.reset(); // Clear the form for the next time
-        });
-
-        // Check for ref code on initial page load, in case the user lands here directly
-        document.addEventListener('DOMContentLoaded', getRefCodeFromUrl);
-
     </script>
 
 </body>
