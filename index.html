@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solliciteer: Business Development Officer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <main class="vacancy-container">
+
+            <header class="vacancy-header">
+                <div class="header-content">
+                    <span class="location-tag">Nijmegen</span>
+                    <h1>Business Development Officer</h1>
+                    <p class="salary">€ 3.500 - € 5.000 per maand</p>
+                </div>
+            </header>
+
+            <section class="card referral-card">
+                 <div class="referral-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                 </div>
+                 <div class="referral-content">
+                     <h2>Klaar voor de volgende stap?</h2>
+                     <p>Ben jij de Business Development Officer die wij zoeken? Solliciteer vandaag nog! Een persoonlijke code van een verwijzer is verplicht.</p>
+                 </div>
+                 <button class="btn btn-primary" onclick="openApplicationModal()">Solliciteer direct</button>
+            </section>
+
+
+            <section class="card job-details">
+                <article>
+                    <h3>Over de functie</h3>
+                    <p>Als Business Development Officer ben je verantwoordelijk voor het creëren van new business en het uitbouwen van het klantennetwerk binnen de installatietechniek. Je bent een kei in het benaderen van prospects en het overtuigen van de meerwaarde van onze dienstverlening. Je signaleert kansen, trends en ontwikkelingen in de markt en vertaalt deze naar concrete acties.</p>
+                </article>
+                <article>
+                    <h3>Jouw profiel</h3>
+                    <ul>
+                        <li>Je hebt HBO werk- en denkniveau.</li>
+                        <li>Minimaal 3 jaar ervaring in een commerciële buitendienstfunctie.</li>
+                        <li>Kennis van de installatietechniek is een sterke pré.</li>
+                        <li>Je bent resultaatgericht, proactief en hebt een passie voor sales.</li>
+                        <li>Woonachtig in de regio Nijmegen en in het bezit van rijbewijs B.</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Wat wij bieden</h3>
+                    <ul>
+                        <li>Een salaris tussen € 3.500,- en € 5.000,- bruto per maand.</li>
+                        <li>Aantrekkelijke bonusregeling, auto, laptop en telefoon.</li>
+                        <li>25 vakantiedagen en volop ontwikkelingsmogelijkheden.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <aside class="card contact-card">
+                <img src="https://www.nrg-office.nl/media/1109/roel-koper-nrg-office.jpg" alt="Roel Koper" class="consultant-photo" onerror="this.style.display='none'; this.parentElement.style.display='none'">
+                <div class="contact-details">
+                    <h4>Vragen over deze vacature?</h4>
+                    <p>Roel Koper staat je graag te woord.</p>
+                </div>
+                <a href="tel:0612345678" class="btn btn-tertiary">Neem contact op</a>
+            </aside>
+        </main>
+    </div>
+
+
+    <div id="applicationModal" class="modal-overlay">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeApplicationModal()">&times;</button>
+            <h2>Solliciteer op deze functie</h2>
+            <p>Vul je gegevens in om te solliciteren. Een persoonlijke code van de verwijzer is verplicht.</p>
+            
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="personalCode">Persoonlijke code (verplicht)</label>
+                    <input type="text" id="personalCode" name="personalCode" placeholder="Vul hier de code van je verwijzer in" required>
+                </div>
+                 <div class="form-group">
+                    <label for="fullName">Volledige naam</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                 <div class="form-group">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefoonnummer</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="cv">Upload je CV</label>
+                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Verstuur sollicitatie</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        const applicationModal = document.getElementById('applicationModal');
+        const applicationForm = document.getElementById('applicationForm');
+        const personalCodeInput = document.getElementById('personalCode');
+
+        // Function to get ref code from URL and pre-fill the input
+        function getRefCodeFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refCode = urlParams.get('ref');
+            if (refCode) {
+                personalCodeInput.value = refCode;
+            }
+        }
+
+        function openApplicationModal() {
+            // Pre-fill code from URL every time modal is opened
+            getRefCodeFromUrl();
+            applicationModal.style.display = 'flex';
+        }
+
+        function closeApplicationModal() {
+            applicationModal.style.display = 'none';
+        }
+
+        // Close modal if user clicks on the overlay
+        applicationModal.addEventListener('click', (event) => {
+            if (event.target === applicationModal) {
+                closeApplicationModal();
+            }
+        });
+
+        // Handle form submission
+        applicationForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+            
+            // You can add more complex validation here
+            const formData = new FormData(applicationForm);
+            
+            // Example: Log form data to console
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            alert('Bedankt voor je sollicitatie!');
+            closeApplicationModal();
+            applicationForm.reset(); // Clear the form
+        });
+
+        // Check for ref code on initial page load
+        document.addEventListener('DOMContentLoaded', getRefCodeFromUrl);
+
+    </script>
+
+</body>
+</html>
