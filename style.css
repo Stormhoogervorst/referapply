@@ -2,11 +2,11 @@
 /* --- CSS Variables --- */
 /* ------------------- */
 :root {
-    --gradient-start: #7c9cbb;
-    --gradient-end: #435776;
+    --gradient-start: #97d045;
+    --gradient-end: #02527d;
     --tag-bg: #e5e7eb;
     --tag-text: #4b5569;
-    --bg-color: #f8f9fa;
+    --bg-color: #f4f4f4;
     --card-bg: #ffffff;
     --text-dark: #111827;
     --text-medium: #4b5569;
