@@ -19,60 +19,51 @@
 
             <!-- Vacancy Header -->
             <header class="vacancy-header">
-                <div class="header-content">
-                    <span class="location-tag">Nijmegen</span>
-                    <h1>Business Development Officer</h1>
-                    <p class="salary">€ 3.500 - € 5.000 per maand</p>
-                </div>
+                <span class="location-tag">Nijmegen</span>
+                <h1>Business Development Officer</h1>
+                <p class="salary">€ 3.500 - € 5.000 per maand</p>
             </header>
 
-            <!-- "Apply Now" Card -->
-            <section class="card cta-card">
+            <!-- "Apply Now" Card - Styled like the reference image -->
+            <section class="cta-card">
                  <div class="cta-icon-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2.25A2.25 2.25 0 0014.25 19.5h4.5A2.25 2.25 0 0021 17.25V7.5A2.25 2.25 0 0018.75 5.25h-4.5A2.25 2.25 0 0012 7.5v2.25" /></svg>
                  </div>
                  <div class="cta-content">
-                    <h2>Klaar voor de volgende stap?</h2>
-                    <p>Solliciteer direct en zet jouw carrière in beweging. We kijken uit naar je sollicitatie!</p>
+                    <h2>Is dit jouw volgende stap?</h2>
+                    <p>Solliciteer direct op de functie en zet je carrière in beweging. We kijken uit naar je sollicitatie!</p>
                  </div>
-                 <button class="btn btn-secondary" onclick="openModal()">Nu solliciteren</button>
+                 <button class="btn btn-light" onclick="openModal()">Nu solliciteren</button>
             </section>
 
             <!-- Job Details Section -->
-            <section class="card job-details">
-                <article>
-                    <h3>Over de functie</h3>
-                    <p>Als Business Development Officer ben je verantwoordelijk voor het creëren van new business en het uitbouwen van het klantennetwerk binnen de installatietechniek. Je bent een kei in het benaderen van prospects en het overtuigen van de meerwaarde van onze dienstverlening. Je signaleert kansen, trends en ontwikkelingen in de markt en vertaalt deze naar concrete acties.</p>
-                </article>
-                <article>
-                    <h3>Jouw profiel</h3>
-                    <ul>
-                        <li>Je hebt HBO werk- en denkniveau.</li>
-                        <li>Minimaal 3 jaar ervaring in een commerciële buitendienstfunctie.</li>
-                        <li>Kennis van de installatietechniek is een sterke pré.</li>
-                        <li>Je bent resultaatgericht, proactief en hebt een passie voor sales.</li>
-                        <li>Woonachtig in de regio Nijmegen en in het bezit van rijbewijs B.</li>
-                    </ul>
-                </article>
-                 <article>
-                    <h3>Wat wij bieden</h3>
-                    <ul>
-                        <li>Een salaris tussen € 3.500,- en € 5.000,- bruto per maand.</li>
-                        <li>Aantrekkelijke bonusregeling, auto, laptop en telefoon.</li>
-                        <li>25 vakantiedagen en volop ontwikkelingsmogelijkheden.</li>
-                    </ul>
-                </article>
-            </section>
-
-            <!-- Contact Section -->
-            <aside class="card contact-card">
-                 <img src="https://www.nrg-office.nl/media/1109/roel-koper-nrg-office.jpg" alt="Roel Koper" class="consultant-photo" onerror="this.style.display='none'; this.parentElement.style.display='none'">
-                 <div class="contact-details">
-                    <h4>Vragen over deze vacature?</h4>
-                    <p>Roel Koper staat je graag te woord.</p>
-                 </div>
-                 <a href="tel:0612345678" class="btn btn-tertiary">Neem contact op</a>
-            </aside>
+            <div class="details-wrapper">
+                <section class="job-details">
+                    <article>
+                        <h3>Over de functie</h3>
+                        <p>Als Business Development Officer ben je verantwoordelijk voor het creëren van new business en het uitbouwen van het klantennetwerk binnen de installatietechniek. Je bent een kei in het benaderen van prospects en het overtuigen van de meerwaarde van onze dienstverlening. Je signaleert kansen, trends en ontwikkelingen in de markt en vertaalt deze naar concrete acties.</p>
+                    </article>
+                    <article>
+                        <h3>Jouw profiel</h3>
+                        <ul>
+                            <li>Je hebt HBO werk- en denkniveau.</li>
+                            <li>Minimaal 3 jaar ervaring in een commerciële buitendienstfunctie.</li>
+                            <li>Kennis van de installatietechniek is een sterke pré.</li>
+                            <li>Je bent resultaatgericht, proactief en hebt een passie voor sales.</li>
+                            <li>Woonachtig in de regio Nijmegen en in het bezit van rijbewijs B.</li>
+                        </ul>
+                    </article>
+                     <article>
+                        <h3>Wat wij bieden</h3>
+                        <ul>
+                            <li>Een salaris tussen € 3.500,- en € 5.000,- bruto per maand.</li>
+                            <li>Aantrekkelijke bonusregeling, auto, laptop en telefoon.</li>
+                            <li>25 vakantiedagen en volop ontwikkelingsmogelijkheden.</li>
+                        </ul>
+                    </article>
+                </section>
+                <!-- Optional: Sidebar could go here if needed in the future -->
+            </div>
         </main>
     </div>
 
@@ -82,7 +73,7 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <h2>Solliciteren</h2>
-            <p>Vul je gegevens in om te solliciteren op de functie van Business Development Officer.</p>
+            <p>Vul je gegevens in om te solliciteren op deze functie.</p>
             <form class="application-form">
                 <div class="form-group">
                     <label for="appName">Naam</label>
