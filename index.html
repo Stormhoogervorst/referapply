@@ -24,10 +24,11 @@
                 <p class="salary">€ 3.500 - € 5.000 per maand</p>
             </header>
 
-            <!-- "Apply Now" Card - Styled like the reference image -->
+            <!-- "Apply Now" Card - Styled with new colors -->
             <section class="cta-card">
                  <div class="cta-icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2.25A2.25 2.25 0 0014.25 19.5h4.5A2.25 2.25 0 0021 17.25V7.5A2.25 2.25 0 0018.75 5.25h-4.5A2.25 2.25 0 0012 7.5v2.25" /></svg>
+                    <!-- Replaced Checkmark Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" /></svg>
                  </div>
                  <div class="cta-content">
                     <h2>Is dit jouw volgende stap?</h2>
@@ -62,15 +63,14 @@
                         </ul>
                     </article>
                 </section>
-                <!-- Optional: Sidebar could go here if needed in the future -->
             </div>
         </main>
     </div>
 
 
-    <!-- NEW Application Modal -->
-    <div id="applicationModal" class="modal-overlay" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal-overlay">
+        <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <h2>Solliciteren</h2>
             <p>Vul je gegevens in om te solliciteren op deze functie.</p>
@@ -115,14 +115,18 @@
             modal.style.display = 'flex';
         }
 
-        function closeModal() {
+        // Updated closeModal to be attached to the overlay click
+        function closeModal(event) {
+            // This condition checks if the click is on the overlay itself
             if (event.target === modal) {
                  modal.style.display = 'none';
             }
         }
         
-        // Attach close functionality to the 'X' button
-        document.querySelector('.modal-close').addEventListener('click', () => modal.style.display = 'none');
+        // This function is attached directly to the close button
+        function closeButtonClick() {
+            modal.style.display = 'none';
+        }
 
         // File input display logic
         const fileInput = document.getElementById('appCv');
@@ -134,6 +138,9 @@
                 fileNameDisplay.textContent = 'Kies bestand...';
             }
         });
+        
+        // Ensure the close button works
+        document.querySelector('.modal-close').addEventListener('click', closeButtonClick);
     </script>
 
 </body>
